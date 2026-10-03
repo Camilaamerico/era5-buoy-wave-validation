@@ -249,9 +249,15 @@ matplotlib
 pytest
 ```
 
-## Research application
+## Related publication
 
-This workflow was developed from a coastal wave-validation analysis performed for research on storm-wave conditions along the coast of Maricá, Rio de Janeiro, Brazil.
+The data and validation workflow presented in this repository are part of the research published in:
 
-The repository focuses on the reproducible computational component of the validation procedure.
+**From hazard-based to impact-based warnings: Using social sensing to refine coastal flood thresholds in Maricá, Rio de Janeiro, Brazil**
+
+Springer, 2026.
+
+Article: https://link.springer.com/article/10.1007/s44218-026-00151-y
+
+The ERA5 and buoy validation results presented here correspond to the wave-validation component of this publication.
 
