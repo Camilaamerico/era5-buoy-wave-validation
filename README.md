@@ -191,6 +191,47 @@ The script will:
 8. generate the validation scatter plot;
 9. generate the 2025 time series.
 
+## Docker
+
+The project can also be executed in a containerized environment using Docker.
+
+### Build the image
+
+From the project root directory:
+
+```bash
+docker build -t era5-buoy-validation .
+```
+
+### Run the automated tests
+
+```bash
+docker run --rm era5-buoy-validation python -m pytest -v
+```
+
+### Run the complete workflow
+
+The raw datasets are not included in the Docker image. They are mounted from the local `data/` directory at runtime.
+
+The `outputs/` directory is also mounted so that generated figures and tables are saved directly to the host system.
+
+#### PowerShell
+
+```powershell
+docker run --rm `
+  -v "${PWD}\data:/app/data" `
+  -v "${PWD}\outputs:/app/outputs" `
+  era5-buoy-validation
+```
+
+The container executes the complete validation workflow and generates:
+
+- `outputs/figures/scatter_2025.png`
+- `outputs/figures/timeseries_2025.png`
+- `outputs/tables/validation_metrics.csv`
+
+The Docker image uses Python 3.12 and installs the dependencies defined in `requirements.txt`.
+
 ## Automated tests
 
 Automated tests are included for the core validation functions.
@@ -249,18 +290,6 @@ matplotlib
 pytest
 ```
 
-## Docker
-
-The project can also be executed in a containerized environment using Docker.
-
-### Build the image
-
-From the project root directory:
-
-```bash
-docker build -t era5-buoy-validation .
-```
-
 ## Related publication
 
 The data and validation workflow presented in this repository are part of the research published in:
@@ -272,4 +301,3 @@ Springer, 2026.
 Article: https://link.springer.com/article/10.1007/s44218-026-00151-y
 
 The ERA5 and buoy validation results presented here correspond to the wave-validation component of this publication.
-
