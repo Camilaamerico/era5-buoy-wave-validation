@@ -249,6 +249,18 @@ matplotlib
 pytest
 ```
 
+## Docker
+
+The project can also be executed in a containerized environment using Docker.
+
+### Build the image
+
+From the project root directory:
+
+```bash
+docker build -t era5-buoy-validation .
+```
+
 ## Related publication
 
 The data and validation workflow presented in this repository are part of the research published in:
